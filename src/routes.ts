@@ -9,6 +9,24 @@ export const routes: Hapi.RouteConfiguration[] = [
     path: '/upload',
     config: {
       tags: ['api'],
+      payload: {
+        output: 'stream',
+        parse: true,
+        allow: 'multipart/form-data',
+        maxBytes: Number(process.env.UPLOAD_MAX_BYTES),
+      },
+      validate: {
+        payload: {
+          file: Joi.any()
+            .meta({ swaggerType: 'file' })
+            .description('upload file'),
+        },
+      },
+      plugins: {
+        'hapi-swagger': {
+          payloadType: 'form',
+        },
+      },
       response: {
         schema: Joi.object().keys({}).unknown(),
       },
