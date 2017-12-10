@@ -6,7 +6,7 @@ A HTTP api that handles file uploads and transfers the files to an SFTP server
 
 ```bash
 docker run \
-  -d 9000:9000 \
+  -d -p 9000:9000 \
   -e SFTP_HOST=sftp.someservice.com \
   -e SFTP_PORT=22 \
   -e SFTP_USER=sftpuser \
@@ -35,3 +35,8 @@ You can navigate to `http://localhost:9000/documentation` for Swagger UI
 
 ![Swagger UI](swaggerui.png)
 
+## Building the image yourself
+
+```
+docker build -t sftp-upload-http-api .
+```

@@ -3,7 +3,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-herokunode8
     image: herokunode8
     command: 'bash -c ''source .env && npm run dev'''
     working_dir: /app/user
@@ -17,7 +17,7 @@ services:
   shell:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-herokunode8
     image: herokunode8
     command: 'bash -c ''source .env && bash'''
     working_dir: /app/user
