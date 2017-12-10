@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/anttiviljami/sftp-upload-http-api.svg?branch=master)](https://travis-ci.org/anttiviljami/sftp-upload-http-api) [![Docker Build Status](https://img.shields.io/docker/build/anttiviljami/sftp-upload-http-api.svg)](https://hub.docker.com/r/anttiviljami/sftp-upload-http-api/)
 
-A HTTP api that handles file uploads and transfers the files to an SFTP server
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+A HTTP api that handles file uploads and transfers the files to a remote SFTP server
 
 ```bash
 docker run \

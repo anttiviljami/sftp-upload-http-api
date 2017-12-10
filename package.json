@@ -1,7 +1,7 @@
 {
   "name": "sftp-upload-http-api",
   "version": "1.0.0",
-  "description": "A http api that handles file uploads and transfers the files to an sftp server",
+  "description": "A HTTP api that handles file uploads and transfers the files to a remote SFTP server",
   "repository": "https://github.com/anttiviljami/sftp-upload-http-api",
   "main": "dist/src/index.js",
   "engines": {
