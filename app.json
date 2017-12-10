@@ -2,5 +2,33 @@
   "name": "SFTP Upload HTTP API",
   "description": "A HTTP api that handles file uploads and transfers the files to a remote SFTP server",
   "repository": "https://github.com/anttiviljami/sftp-upload-http-api",
-  "keywords": ["sftp", "http", "api", "upload", "microservice"]
+  "keywords": ["sftp", "http", "api", "upload", "microservice"],
+	"env": {
+    "SFTP_HOST": {
+      "description": "Remote SFTP server host",
+			"required": true
+    },
+    "SFTP_PORT": {
+      "description": "Remote SFTP server port",
+			"value": "22",
+			"required": true
+    },
+    "SFTP_USER": {
+      "description": "Remote SFTP server username",
+			"required": true
+    },
+    "SFTP_PASS": {
+      "description": "Remote SFTP server password",
+			"required": true
+    },
+    "SFTP_UPLOAD_PATH": {
+      "description": "Remote SFTP server password",
+			"value": "/",
+			"required": true
+    },
+    "UPLOAD_MAX_BYTES": {
+      "description": "Maximum size of upload (default: 50MB)",
+      "value": "52428800"
+    }
+  }
 }
