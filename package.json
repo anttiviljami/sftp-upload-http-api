@@ -1,0 +1,8 @@
+{
+  "name": "sftp-upload-http-api",
+  "version": "1.0.0",
+  "description": "A http api that handles file uploads and transfers the files to an sftp server",
+  "repository": "https://github.com/anttiviljami/sftp-upload-http-api",
+  "author": "Viljami Kuosmanen",
+  "license": "MIT"
+}
