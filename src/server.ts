@@ -1,5 +1,4 @@
 import * as Hapi from 'hapi';
-
 import * as inert from 'inert';
 import * as vision from 'vision';
 import * as blipp from 'blipp';

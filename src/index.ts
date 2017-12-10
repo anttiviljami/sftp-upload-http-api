@@ -10,6 +10,5 @@ import { createServer } from './server';
     logger.error('Server failed to start', e);
     process.exit(1);
   }
-
   return server;
 })();

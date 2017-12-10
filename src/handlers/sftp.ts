@@ -6,6 +6,7 @@ import * as path from 'path';
 
 import { sftpClient, SFTPWriteStream } from '../util/sftp';
 import { SFTPStream } from 'ssh2-streams';
+
 export async function uploadHandler(req: Hapi.Request, reply: Hapi.ReplyNoContinue) {
   const { file } = req.payload;
   if (!file) {
