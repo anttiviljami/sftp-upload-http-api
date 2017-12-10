@@ -13,7 +13,7 @@ export const routes: Hapi.RouteConfiguration[] = [
         output: 'stream',
         parse: true,
         allow: 'multipart/form-data',
-        maxBytes: Number(process.env.UPLOAD_MAX_BYTES),
+        maxBytes: Number(process.env.UPLOAD_MAX_BYTES || 10485760),
       },
       validate: {
         payload: {
