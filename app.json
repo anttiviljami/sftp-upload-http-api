@@ -15,15 +15,17 @@
     },
     "SFTP_USER": {
       "description": "Remote SFTP server username",
+			"value": "username",
 			"required": true
     },
     "SFTP_PASS": {
       "description": "Remote SFTP server password",
+			"value": "password",
 			"required": true
     },
     "SFTP_UPLOAD_PATH": {
-      "description": "Remote SFTP server password",
-			"value": "/",
+      "description": "Remote SFTP server upload path",
+			"value": "/home/username",
 			"required": true
     },
     "UPLOAD_MAX_BYTES": {
