@@ -25,6 +25,7 @@ export async function createServer() {
       options: {
       info: {
         title: 'SFTP Upload HTTP API',
+        description: 'A HTTP api that handles file uploads and transfers the files to an SFTP server',
         version: '1.0.0',
       },
       swaggerUI: true,

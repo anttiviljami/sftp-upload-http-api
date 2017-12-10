@@ -9,6 +9,7 @@ export const routes: Hapi.RouteConfiguration[] = [
     path: '/upload',
     config: {
       tags: ['api'],
+      description: 'Takes in HTTP upload and streams it via SFTP to remote server',
       payload: {
         output: 'stream',
         parse: true,
@@ -22,13 +23,18 @@ export const routes: Hapi.RouteConfiguration[] = [
             .description('upload file'),
         },
       },
+      response: {
+        status: {
+          200: Joi.object().keys({
+            path: Joi.string().description('Remote path to uploaded file').example('/path/to/file'),
+            bytes: Joi.number().description('File size of uploaded file').example(1024),
+          }),
+        },
+      },
       plugins: {
         'hapi-swagger': {
           payloadType: 'form',
         },
-      },
-      response: {
-        schema: Joi.object().keys({}).unknown(),
       },
       handler: uploadHandler,
     },
