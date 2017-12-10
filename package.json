@@ -3,6 +3,54 @@
   "version": "1.0.0",
   "description": "A http api that handles file uploads and transfers the files to an sftp server",
   "repository": "https://github.com/anttiviljami/sftp-upload-http-api",
+  "main": "dist/src/index.js",
+  "engines": {
+    "node": "^8.5.0",
+    "npm": "^5.3.0"
+  },
+  "keywords": [
+    "sftp",
+    "upload",
+    "api"
+  ],
   "author": "Viljami Kuosmanen",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/hapi": "^16.1.11",
+    "@types/inert": "^4.2.4",
+    "@types/joi": "^10.6.1",
+    "@types/node": "^8.0.57",
+    "@types/winston": "^2.3.7",
+    "blipp": "^2.3.0",
+    "hapi": "^16.6.2",
+    "hapi-swagger": "^7.9.1",
+    "inert": "^4.2.1",
+    "joi": "^10.6.0",
+    "typescript": "^2.6.2",
+    "vision": "^4.1.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.8",
+    "@types/mocha": "^2.2.44",
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.1",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.5",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0"
+  },
+  "scripts": {
+    "start": "node --max_old_space_size=500 dist/src/index.js",
+    "dev": "concurrently -k -p '[{name}]' -n 'TypeScript,Node' -c 'yellow.bold,cyan.bold,green.bold' 'npm run watch-build' 'npm run watch-server'",
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "watch-build": "tsc -w",
+    "watch-server": "nodemon -L --watch dist/src --delay 2 dist/src/index.js",
+    "inspect": "node --inspect dist/src/index.js",
+    "start-docker": "docker-compose up web",
+    "shell": "docker-compose run --rm shell bash -c \"source .env && bash\"",
+    "test": "mocha",
+    "lint": "tslint --format prose --project ."
+  }
 }

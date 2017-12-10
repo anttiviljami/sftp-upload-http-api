@@ -1,0 +1,35 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: herokunode8
+    command: 'bash -c ''source .env && npm run dev'''
+    working_dir: /app/user
+    ports:
+      - '9000:9000'
+    volumes:
+      - '.:/app/user'
+    links:
+      - sftp
+
+  shell:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: herokunode8
+    command: 'bash -c ''source .env && bash'''
+    working_dir: /app/user
+    volumes:
+      - '.:/app/user'
+    links:
+      - sftp
+
+  sftp:
+    image: atmoz/sftp
+    command: 'sftpuser:password:::upload'
+    ports:
+      - '2222:22'
+    volumes:
+      - './upload/:/home/sftpuser/upload'
